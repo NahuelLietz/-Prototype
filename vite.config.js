@@ -16,7 +16,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html'],
       include: ['src/**/*.{js,jsx}'],
-      exclude: ['src/test/**', 'src/**/*.test.jsx'],
+      exclude: ['src/test/**', 'src/**/*.test.{js,jsx}'],
     },
   },
 })
