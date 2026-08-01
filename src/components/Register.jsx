@@ -1,15 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // 1. Importas useNavigate
+import { useNavigate } from 'react-router-dom';
+import useFormFields from '../hooks/useFormFields.js';
 
 export function Register() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  
-  // 2. Inicializas el hook
+  const { values, handleChange } = useFormFields({ email: '', password: '' });
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Usuario registrado:", formData);
+    console.log("Usuario registrado:", values);
     navigate('/'); 
   };
 
@@ -20,21 +18,22 @@ export function Register() {
       <form onSubmit={handleSubmit}>
         <input 
           type="email" 
+          name="email"
           placeholder="Correo electrónico"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          value={values.email}
+          onChange={handleChange}
         />
         <input 
           type="password" 
+          name="password"
           placeholder="Contraseña"
-          value={formData.password}
-          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+          value={values.password}
+          onChange={handleChange}
         />
         
         <button type="submit">Registrarse</button>
       </form>
 
-      {/* También puedes usarlo en un botón normal para cancelar o volver */}
       <button onClick={() => navigate(-1)}>
         Volver atrás
       </button>
