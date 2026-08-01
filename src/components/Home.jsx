@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Register from "./Register.jsx";
 
 function Home() { 
   const navigate = useNavigate();
