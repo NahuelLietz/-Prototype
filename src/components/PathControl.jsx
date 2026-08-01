@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router"
 import Home from "./Home.jsx"
 import {Register} from "./Register.jsx"
 
